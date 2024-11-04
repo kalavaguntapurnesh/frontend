@@ -28,10 +28,8 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon api/index.js",
-    "client": "react-scripts start",
-    "build": "npm run build --prefix src",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client": "npm run start --prefix src",
+    "build": "npm run build --prefix src"
   },
   "eslintConfig": {
     "extends": [

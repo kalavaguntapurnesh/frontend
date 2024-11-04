@@ -26,10 +26,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon api/index.js",
-    "client": "npm run start --prefix src",
-    "build": "npm run build --prefix src"
+    "dev": "concurrently \"npm:start\" \"npm:backend\"",
+    "start": "react-scripts start",
+    "backend": "nodemon api/index.js",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

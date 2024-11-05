@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/login`,
+        "https://backend-six-kappa-64.vercel.app/auth/login",
         { email, password }
       );
       const token = res.data.token;
@@ -23,7 +23,7 @@ const Login = () => {
 
       // Fetch user details after login
       const userRes = await axios.get(
-        `${process.env.REACT_APP_API_URL}/auth/me`,
+        "https://backend-six-kappa-64.vercel.app/auth/me",
         {
           headers: { Authorization: token },
         }

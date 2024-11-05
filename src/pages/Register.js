@@ -19,7 +19,7 @@ const Register = () => {
 
       // Make API request to register the user
       const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/register`,
+        "https://backend-six-kappa-64.vercel.app/auth/register",
         {
           email,
           password,
@@ -31,7 +31,7 @@ const Register = () => {
 
       // Fetch user details with the token
       const userRes = await axios.get(
-        `${process.env.REACT_APP_API_URL}/auth/me`,
+        "https://backend-six-kappa-64.vercel.app/auth/me",
         {
           headers: { Authorization: res.data.token },
         }

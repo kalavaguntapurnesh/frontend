@@ -4,15 +4,18 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { setToken, setUser } from "../store/authSlice";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post(
         "https://backend-six-kappa-64.vercel.app/auth/login",
@@ -33,6 +36,8 @@ const Login = () => {
       navigate("/dashboard");
     } catch (err) {
       console.error("Login failed:", err);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -57,7 +62,7 @@ const Login = () => {
         type="submit"
         className="w-full p-2 bg-blue-500 text-white rounded"
       >
-        Login
+        {loading ? <Spinner /> : "Login"}
       </button>
     </form>
   );

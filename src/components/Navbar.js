@@ -17,16 +17,30 @@ const Navbar = () => {
         <div className="space-x-4">
           {isAuthenticated ? (
             <>
-              <Link to="/dashboard" className="hover:underline">Home</Link>
-              <Link to="/profile" className="hover:underline">My Profile</Link>
-              <button onClick={handleLogout} className="hover:underline">Logout</button>
+              <Link to="/dashboard" className="hover:underline">
+                Home
+              </Link>
+              <Link to="/profile" className="hover:underline">
+                My Profile
+              </Link>
+              <button onClick={handleLogout} className="hover:underline">
+                Logout
+              </button>
             </>
           ) : (
             <>
-              <Link to="/" className="hover:underline">About Us</Link>
-              <Link to="/contact" className="hover:underline">Contact</Link>
-              <Link to="/login" className="hover:underline">Log In</Link>
-              <Link to="/register" className="hover:underline">Register</Link>
+              <Link to="/" className="hover:underline">
+                About Us
+              </Link>
+              <Link to="/contact" className="hover:underline">
+                Contact
+              </Link>
+              <Link to="/login" className="hover:underline">
+                Log In
+              </Link>
+              <Link to="/register" className="hover:underline">
+                Register
+              </Link>
             </>
           )}
         </div>

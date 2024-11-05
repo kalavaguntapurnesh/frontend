@@ -42,30 +42,34 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="max-w-md mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        className="w-full p-2 border border-gray-300 rounded mb-4"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        className="w-full p-2 border border-gray-300 rounded mb-4"
-      />
-      <button
-        type="submit"
-        className="w-full p-2 bg-blue-500 text-white rounded"
-        disabled={loading}
-      >
-        {loading ? <Spinner /> : "Login"}
-      </button>
-    </form>
+    <div className="relative">
+      {loading && <Spinner />}
+
+      <form onSubmit={handleLogin} className="max-w-md mx-auto p-4">
+        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <button
+          type="submit"
+          className="w-full p-2 bg-blue-500 text-white rounded"
+          disabled={loading}
+        >
+          Login
+        </button>
+      </form>
+    </div>
   );
 };
 

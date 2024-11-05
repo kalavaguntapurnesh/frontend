@@ -18,18 +18,24 @@ const Register = () => {
       setError(null);
 
       // Make API request to register the user
-      const res = await axios.post("/auth/register", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/register`,
+        {
+          email,
+          password,
+        }
+      );
 
       // Store the token in Redux
       dispatch(setToken(res.data.token));
 
       // Fetch user details with the token
-      const userRes = await axios.get("/auth/me", {
-        headers: { Authorization: res.data.token },
-      });
+      const userRes = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/me`,
+        {
+          headers: { Authorization: res.data.token },
+        }
+      );
       dispatch(setUser(userRes.data));
 
       // Redirect to the dashboard after successful registration

@@ -14,14 +14,20 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/auth/login", { email, password });
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        { email, password }
+      );
       const token = res.data.token;
       dispatch(setToken(token));
 
       // Fetch user details after login
-      const userRes = await axios.get("/auth/me", {
-        headers: { Authorization: token },
-      });
+      const userRes = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/me`,
+        {
+          headers: { Authorization: token },
+        }
+      );
       dispatch(setUser(userRes.data));
 
       navigate("/dashboard");
